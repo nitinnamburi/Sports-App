@@ -1,30 +1,33 @@
+// 👇 this MUST be the very first line
+import 'react-native-gesture-handler';
+
+// core React imports
 import React from 'react';
-import {Text, View, StyleSheet, Button } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+
+// navigation imports
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+//Import screens
+import WelcomeScreen from './screens/WelcomeScreen';
+import HomeScreen from './screens/HomeScreen';
+
+// create stack
+const Stack = createNativeStackNavigator();
 
 
 
+
+
+// main app with navigation
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to SportsApp!</Text>
-      <Button title="Get Started" onPress={() => alert('Button clicked!')} />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,                 
-    justifyContent: 'center', 
-    alignItems: 'center',     
-    backgroundColor: '#7d3fb1ff', 
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: 'black'
-  }
-
-
-});
