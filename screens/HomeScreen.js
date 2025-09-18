@@ -5,10 +5,10 @@ export default function HomeScreen({ navigation }) { // makes a screen called "H
   const [selected, setSelected] = useState(null); // keeps track of which sport was picked (starts as nothing)
 
   const sports = [ // a list of sports with their emoji and names
-    { id: 'tennis', label: '🎾 Tennis', color: "#fd0000ff"},
-    { id: 'pickleball', label: '🏓 Pickleball', color:" #10b981"},
-    { id: 'basketball', label: '🏀 Basketball', color: '#ffbc02ff' },
-    { id: 'volleyball', label: '🏐 Volleyball', color: '#fa0ceeff'},
+    { id: 'Tennis', label: '🎾 Tennis', color: "#fd0000ff"},
+    { id: 'Pickleball', label: '🏓 Pickleball', color:"#10b981"},
+    { id: 'Basketball', label: '🏀 Basketball', color: '#ffbc02ff'},
+    { id: 'Volleyball', label: '🏐 Volleyball', color: '#fa0ceeff'},
   ];
 
   const handleSelect = (sportId) => { // when you click a sport
@@ -17,7 +17,7 @@ export default function HomeScreen({ navigation }) { // makes a screen called "H
 
   const handleContinue = () => { // when you press the green button
     if (!selected) return; // if no sport is picked, do nothing
-    navigation.navigate('EventList', { sport: selected }); // otherwise, go to EventList screen and send the chosen sport
+    navigation.navigate('EventList', {sport:selected}); // otherwise, go to EventList screen and send the chosen sport
   };
 
   return ( // this is what the screen looks like
